@@ -1,20 +1,19 @@
-const colors = ["green", "red", "rgba(133,122,200)","#f15025","#f1f5f8"];
+const hex = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"];
 
-const btn=document.getElementById('btn');
 
-const color=document.querySelector(".color");
+const btn = document.getElementById("btn");
+
+const color = document.querySelector('.color');
 
 btn.addEventListener('click',()=>{
-    // Get a random Number between 0-4 
-    const randomNumber=getRandom();
+    let hexColor = '#';
 
-    document.body.style.backgroundColor = colors[randomNumber];
-    color.innerHTML=colors[randomNumber];
+    for(let a=0;a<6;a++){
+        let ran=Math.floor(Math.random()*hex.length);
+        hexColor+=hex[ran];
+    }
 
+    color.innerHTML=hexColor;
+    document.body.style.backgroundColor = hexColor
 
 })
-
-
-const getRandom = ()=>{
-    return Math.floor(Math.random()*colors.length);
-}
